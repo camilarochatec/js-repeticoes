@@ -11,14 +11,34 @@
 
 // }
 
-for(let i= 1; i<=31; i++){
+let diasMeses =[31,28,31,30,31,30,31,31,30,31,30,31];
+
+function adicionarDias(){
+    dia.innerHTML ="";
+    if(mes.value ==1){
+        if(ano.value %4 == 0){
+            diasMeses[1]=29;
+        }else{
+                diasMeses[1]=28;
+            }
+        }
+    
+for(let i= 1; i<=diasMeses[Number(mes.value)]; i++){
     dia.innerHTML += `<option>${i}</option>`;
 }
-for(let i= 1; i<=12; i++){
-    mes.innerHTML += `<option>${i}</option>`;
 }
+
+adicionarDias();
+
+let nomeDeMeses = ["jan", "fev", "março","abril","maio","jun","jul","ago","set","out","nov","dez"];
+for(let i= 0; i<12; i++){
+    mes.innerHTML += `<option value="${i}">${nomeDeMeses[i]}</option>`;
+}
+
 for(let i= new Date().getFullYear(); i>=new Date().getFullYear() - 50; i--){ //para o intervalo ser de 50 anos.
     ano.innerHTML += `<option>${i}</option>`;
+
+
 
     function verificar(){
         
